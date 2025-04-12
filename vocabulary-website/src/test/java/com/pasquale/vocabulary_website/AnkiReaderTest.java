@@ -14,7 +14,7 @@ class AnkiReaderTest {
     void testReadAnkiDataset() throws Exception { // Use JUnit 5 annotation
         AnkiDatasetReader reader = new AnkiDatasetReader();
         // Make sure the path is correct and the file exists
-        String filePath = "C:\\Users\\pasqu\\Projects\\vocabulary-website\\data\\Deutsch_4000_German_Words_by_Frequency.apkg";
+        String filePath = "";
         File testFile = new File(filePath);
         if (!testFile.exists()) {
             System.err.println("Test file not found: " + filePath);

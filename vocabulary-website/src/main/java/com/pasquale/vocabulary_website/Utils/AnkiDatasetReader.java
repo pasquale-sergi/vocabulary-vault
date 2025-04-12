@@ -2,6 +2,7 @@ package com.pasquale.vocabulary_website.Utils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 
 import java.io.*;
@@ -12,7 +13,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
+@Component
 public class AnkiDatasetReader {
 
     private static final ObjectMapper mapper = new ObjectMapper();
