@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocaLearn - German Vocabulary Trainer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+      <h1>VocaLearn</h1>
+      <p>Your personal German vocabulary trainer</p>
+      
+      <div class="settings-container">
+        <h2>Daily Learning Settings</h2>
+        <div class="setting-item">
+          <label for="word-count">Number of words to learn today:</label>
+          <input type="number" id="word-count" min="1" max="50" value="10">
+        </div>
+        <button id="start-learning" class="primary-btn">Start Learning</button>
+      </div>
+    </div>
+
+    <!-- Learning Screen -->
+    <div id="learning-screen" class="screen">
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div class="progress-text">
+        <span id="current-word">1</span>/<span id="total-words">10</span>
+      </div>
+
+      <div class="card">
+        <div class="word-section">
+          <h2 id="german-word">das Haus</h2>
+          <button id="play-pronunciation" class="icon-btn">🔊</button>
+        </div>
+        
+        <div class="translation-section">
+          <p id="translation">the house</p>
+        </div>
+        
+        <div class="examples-section">
+          <h3>Examples:</h3>
+          <ul id="examples-list">
+            <li>Das ist mein Haus. (This is my house.)</li>
+            <li>Das Haus ist groß. (The house is big.)</li>
+          </ul>
+        </div>
+        
+        <div class="button-container">
+          <button id="next-word" class="primary-btn">Next Word</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multiple Choice Exercise Screen -->
+    <div id="multiple-choice-screen" class="screen">
+      <h2>Fill in the blank</h2>
+      <div class="progress-bar-container">
+        <div id="mc-progress-bar" class="progress-bar"></div>
+      </div>
+      <div class="progress-text">
+        <span id="mc-current">1</span>/<span id="mc-total">10</span>
+      </div>
+
+      <div class="exercise-container">
+        <p id="sentence-with-blank">Ich wohne in einem ________ in Berlin.</p>
+        
+        <div id="options-container" class="options-container">
+          <!-- Options will be generated dynamically -->
+        </div>
+        
+        <div id="mc-feedback" class="feedback"></div>
+        
+        <button id="mc-next" class="primary-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Writing Exercise Screen -->
+    <div id="writing-screen" class="screen">
+      <h2>Translate to German</h2>
+      <div class="progress-bar-container">
+        <div id="writing-progress-bar" class="progress-bar"></div>
+      </div>
+      <div class="progress-text">
+        <span id="writing-current">1</span>/<span id="writing-total">10</span>
+      </div>
+
+      <div class="exercise-container">
+        <p id="english-to-translate">the house</p>
+        
+        <div class="input-container">
+          <input type="text" id="german-answer" placeholder="Type the German word...">
+          <button id="check-answer" class="primary-btn">Check</button>
+        </div>
+        
+        <div id="writing-feedback" class="feedback"></div>
+        
+        <button id="writing-next" class="primary-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+      <h2>Great job!</h2>
+      <div class="results-container">
+        <div class="result-item">
+          <h3>Words Learned</h3>
+          <p id="words-learned">10</p>
+        </div>
+        <div class="result-item">
+          <h3>Multiple Choice Score</h3>
+          <p><span id="mc-score">8</span>/<span id="mc-questions">10</span></p>
+        </div>
+        <div class="result-item">
+          <h3>Writing Score</h3>
+          <p><span id="writing-score">7</span>/<span id="writing-questions">10</span></p>
+        </div>
+      </div>
+      
+      <button id="restart" class="primary-btn">Start New Session</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
