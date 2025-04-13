@@ -15,6 +15,7 @@ public class VocabularyItem {
     private String german;
     private String english;
     private String sampleSentence;
+    private String audio;
 
     public VocabularyItem() {}
 
@@ -27,7 +28,18 @@ public class VocabularyItem {
                     Map<String, String> fields = (Map<String, String>) ankiNote.get("fields");
             this.german = fields.getOrDefault("German", "");
             this.english = fields.getOrDefault("English", "");
+            this.audio = fields.getOrDefault("Audio", "");
+
             this.sampleSentence = fields.getOrDefault("Sample sentence", "");
         }
+    }
+
+    public VocabularyItem(VocabularyItem original) {
+        this.noteId = original.noteId;
+        this.modelId = original.modelId;
+        this.german = original.german;
+        this.english = original.english;
+        this.audio = original.audio; // Copy the original audio value initially
+        this.sampleSentence = original.sampleSentence;
     }
 }

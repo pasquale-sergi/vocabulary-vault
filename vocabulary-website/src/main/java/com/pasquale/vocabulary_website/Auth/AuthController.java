@@ -16,7 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*",maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500",maxAge = 3600)
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {
