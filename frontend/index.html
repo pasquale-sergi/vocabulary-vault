@@ -5,11 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VocaLearn - German Vocabulary Trainer</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="app-container">
+    <div id="login-screen" class="screen active"> <!-- Start with login active -->
+        <h1>VocaLearn - Login</h1>
+        <div class="login-form-container">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button id="login-btn" class="primary-btn">Login</button>
+          <p id="login-error" class="error-message" style="display: none;"></p>
+          <!-- Optional: Link to signup -->
+          <p>Don't have an account? <a href="/signup.html">Sign up</a></p>
+        </div>
+      </div>
     <!-- Welcome Screen -->
-    <div id="welcome-screen" class="screen active">
+    <div id="welcome-screen" class="screen">
       <h1>VocaLearn</h1>
       <p>Your personal German vocabulary trainer</p>
       
@@ -20,6 +40,9 @@
           <input type="number" id="word-count" min="1" max="50" value="10">
         </div>
         <button id="start-learning" class="primary-btn">Start Learning</button>
+        <button id="logout-btn" class="secondary-btn">Logout</button>
+        <p id="loading-indicator" style="display: none; margin-top: 10px;">Loading vocabulary...</p>
+        <p id="error-message" style="display: none; color: red; margin-top: 10px;"></p>
       </div>
     </div>
 
@@ -125,6 +148,8 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="app.js"></script>
+  <audio id="audio-player" style="display: none;"></audio>
+
 </body>
 </html>

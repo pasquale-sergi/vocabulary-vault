@@ -1,313 +1,197 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    background-color: #f5f5f5;
-    color: #333;
-  }
-  
-  .app-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-  }
-  
-  .screen {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  .active {
-    display: block;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  h1 {
-    text-align: center;
-    color: #4a6fa5;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    color: #4a6fa5;
-    margin-bottom: 15px;
-  }
-  
-  h3 {
-    color: #4a6fa5;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-  
-  p {
-    margin-bottom: 15px;
-    line-height: 1.5;
-  }
-  
-  /* Welcome Screen */
-  .settings-container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-  }
-  
-  .setting-item {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  
-  input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  /* Learning Screen */
-  .progress-bar-container {
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background-color: #4a6fa5;
-    width: 0%;
-    transition: width 0.3s ease;
-  }
-  
-  .progress-text {
-    text-align: right;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  .card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .word-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .word-section h2 {
-    margin-bottom: 0;
-    font-size: 2rem;
-  }
-  
-  .icon-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #4a6fa5;
-  }
-  
-  .translation-section {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .translation-section p {
-    font-size: 1.3rem;
-    color: #555;
-  }
-  
-  .examples-section ul {
-    list-style-position: inside;
-    margin-bottom: 25px;
-  }
-  
-  .examples-section li {
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
-  
-  .button-container {
-    text-align: center;
-  }
-  
-  /* Exercise Screens */
-  .exercise-container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  #sentence-with-blank {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    line-height: 1.6;
-  }
-  
-  .options-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .option-btn {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .option-btn:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .option-btn.selected {
-    background-color: #e6f0ff;
-    border-color: #4a6fa5;
-  }
-  
-  .option-btn.correct {
-    background-color: #e6ffe6;
-    border-color: #4caf50;
-  }
-  
-  .option-btn.incorrect {
-    background-color: #ffe6e6;
-    border-color: #f44336;
-  }
-  
-  .input-container {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  #german-answer {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
-    font-size: 1rem;
-  }
-  
-  #check-answer {
-    border-radius: 0 5px 5px 0;
-  }
-  
-  .feedback {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-  }
-  
-  .feedback.correct {
-    background-color: #e6ffe6;
-    color: #2e7d32;
-    display: block;
-  }
-  
-  .feedback.incorrect {
-    background-color: #ffe6e6;
-    color: #c62828;
-    display: block;
-  }
-  
-  #english-to-translate {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-  }
-  
-  /* Results Screen */
-  .results-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-  
-  .result-item {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .result-item p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4a6fa5;
-    margin-bottom: 0;
-  }
-  
-  /* Buttons */
-  .primary-btn {
-    background-color: #4a6fa5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: 100%;
-  }
-  
-  .primary-btn:hover {
-    background-color: #3d5d8a;
-  }
-  
-  #mc-next, #writing-next {
-    display: none;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 480px) {
-    .app-container {
-      padding: 15px;
-    }
-    
-    h1 {
-      font-size: 2rem;
-    }
-    
-    .word-section h2 {
-      font-size: 1.8rem;
-    }
-    
-    .results-container {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+/* --- General Styles (Apply to all screens potentially) --- */
+body {
+  font-family: 'Nunito', sans-serif; /* A friendly, rounded font (add Google Font link in HTML if needed) */
+  /* Example Gradient Background */
+  background: linear-gradient(135deg, #f6d3e4 0%, #d4e4f8 100%);
+  /* Or a solid soft color */
+  /* background-color: #f0f4f8; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333; /* Default text color */
+}
+
+.app-container {
+  max-width: 450px; /* Adjust max width if needed */
+  width: 90%;
+  background-color: #ffffff; /* White container for content */
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  overflow: hidden; /* Keep content within rounded corners */
+}
+
+.screen {
+  padding: 30px 40px; /* Consistent padding */
+  display: none; /* Hide screens by default */
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen.active {
+  display: flex; /* Show the active screen */
+}
+
+h1 {
+  color: #4a5a70; /* Softer title color */
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+p {
+  color: #6a788f; /* Softer paragraph text */
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* --- Login Screen Specific Styles --- */
+#login-screen {
+  text-align: center;
+}
+
+#login-screen h1 {
+  margin-bottom: 20px;
+}
+
+.login-form-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5b6a82; /* Label color */
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dce3ec; /* Light border */
+  border-radius: 8px; /* Rounded input fields */
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: inherit; /* Use the body font */
+  background-color: #f8f9fc; /* Slightly off-white background */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-color: #a8b8d0; /* Highlight border on focus */
+  box-shadow: 0 0 0 3px rgba(168, 184, 208, 0.2); /* Subtle glow on focus */
+}
+
+/* Primary Button Style (can be reused) */
+.primary-btn {
+  display: inline-block; /* Allow width setting */
+  width: 100%; /* Make login button full width */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  /* Example Gradient Button */
+  background: linear-gradient(90deg, #a0b4d4 0%, #c3cfe2 100%);
+  /* Or a solid color */
+  /* background-color: #89a1c7; */
+  color: white;
+  font-size: 1.1em;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.primary-btn:hover {
+  /* Darken gradient slightly */
+  background: linear-gradient(90deg, #8e9fb9 0%, #b1becf 100%);
+  /* background-color: #7a91b6; */
+}
+
+.primary-btn:active {
+  transform: scale(0.98); /* Click effect */
+}
+
+.primary-btn:disabled {
+  background: #cccccc; /* Disabled state */
+  cursor: not-allowed;
+}
+
+
+#login-error {
+  color: #e74c3c; /* Error red */
+  font-size: 0.9em;
+  margin-top: 15px;
+  min-height: 1.2em; /* Prevent layout jump */
+  font-weight: 600;
+}
+
+/* Signup Link Styling */
+.login-form-container p { /* Target the signup paragraph */
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #6a788f;
+}
+
+.login-form-container p a {
+  color: #89a1c7; /* Link color matching button */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-form-container p a:hover {
+  text-decoration: underline;
+}
+
+/* Loading/Error message styling (shared potentially) */
+#loading-indicator {
+    color: #5b6a82;
+    font-weight: 600;
+}
+#error-message { /* Style for welcome screen error */
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.secondary-btn {
+  display: inline-block;
+  width: 100%; /* Or adjust width as needed */
+  padding: 10px 20px; /* Slightly less padding than primary */
+  border: 1px solid #a0b4d4; /* Use a border */
+  border-radius: 8px;
+  background-color: #ffffff; /* White background */
+  color: #89a1c7; /* Text color matching primary button */
+  font-size: 1em; /* Slightly smaller font */
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 15px; /* Spacing */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+.secondary-btn:hover {
+  background-color: #f0f4f8; /* Slight background change on hover */
+  color: #7a91b6;
+}
+
+.secondary-btn:active {
+  transform: scale(0.98); /* Click effect */
+}
+
+/* --- Add Google Font Link in HTML --- */
+/* Make sure to add this inside the <head> of your index.html */
+/*
+
+*/
